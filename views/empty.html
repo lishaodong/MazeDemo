@@ -1,0 +1,26 @@
+{{template "base/base.html" .}}
+{{define "head"}}
+<title>{{i18n .Lang "Choose"}} - {{i18n .Lang "app_intro"}}</title>
+{{end}}
+{{define "body"}}
+<div class="container" style="width: 500px;">
+    <h3>{{i18n .Lang "not_found"}}</h3>
+    <br>
+    <form action="/" method="post" class="form-horizontal">
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-10">
+                <button type="submit" class="btn btn-info">{{i18n .Lang "back"}}</button>
+            </div>
+        </div>
+    </form>
+    <form action="/search" method="post" class="form-horizontal">
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-10">
+                <button type="submit" class="btn btn-info">{{i18n .Lang "retry"}}</button>
+            </div>
+        </div>
+    </form>
+</div>
+{{end}}
