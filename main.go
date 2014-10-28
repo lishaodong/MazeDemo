@@ -23,6 +23,7 @@ import (
 	"net"
 	"github.com/astaxie/beego"
 	"github.com/lishaodong/MazeDemo/models"
+	"os/exec"
 )
 
 var(
@@ -40,13 +41,13 @@ func main() {
 
 
 	go LaunchServer()
-
+	OpenPage()
 	<-make(chan bool)
 }
 
 func LaunchServer(){
 	ss := make([]string, 10)
-	ss[0] = "/Users/dong/configosst.torrent"
+	ss[0] = "./configosst.torrent"
 	launcher = torrent.NewLauncher(ss[0:1])
 
 	go launcher.Launch()
@@ -60,14 +61,20 @@ func LaunchServer(){
 				beego.Trace("same ip, rejected,%v",i)
 				continue
 			}
-			break
-			beego.Trace("get Peer:",peer)
+
+
 			models.IP = strings.Split(peer,":")[0]
+			beego.Trace("get Peer:",models.IP)
 			i++
 		}
 	}()
 }
 
+
+func OpenPage(){
+	cmd := exec.Command("open","http://localhost:8081")
+	cmd.Run()
+}
 func GetAddr() string { //Get ip
 	conn, err := net.Dial("udp", "baidu.com:80")
 	if err != nil {

@@ -1,7 +1,9 @@
-# Web IM
+Maze Demo
+========
 
-[中文文档](./README_ZH.md)
+This demo is about using long polling and WebSocket to build a
+web-based chat room based on maze. This sample is borrowed from
+a sample for beego, [WebIM](http://github.com/beego/samples/WebIM).
 
-This sample is about using long polling and WebSocket to build a web-based chat room based on beego.
+If you are interested in peer-to-peer network, please join me in [Maze](http://github.com/lishaodong/Maze).
 
-- [Documentation](http://beego.me/docs/examples/chat.md)
